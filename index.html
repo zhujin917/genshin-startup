@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="icon" href="img/logo.png">
+	<title>原神·启动</title>
+	<link rel="stylesheet" href="mdui/css/mdui.min.css">
+	<script src="mdui/js/mdui.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+	<script src="js/startup.js"></script>
+</head>
+
+<body class="mdui-theme-layout-dark mdui-theme-primary-teal mdui-theme-accent-teal">
+	<div class="main" id="settings">
+		<div id="settings_brand" class="part">
+			<h1>原神, 启动!</h1>
+			<button id="settings_brand_start" class="mdui-btn mdui-color-theme mdui-ripple mdui-ripple-white">
+				<i class="mdui-icon material-icons">play_arrow</i>
+				<span>启动</span>
+			</button>
+			<p>　　免责声明：本网站仅供娱乐，并非能够启动原神游戏。本网站所展示的米哈游公司标志、原神游戏标志，著作权均属于米哈游公司。本网站所使用的图标系从门酱在互联网上公开发表的视频中截取。上述素材若有侵权，请及时联系本网站作者予以删除。
+			</p>
+			<p>　　特别提示：按 F11 可进入全屏模式。完成一次启动进程后，刷新即可返回此页面。</p>
+			<p>　　本网站作者：玖小柒。</p>
+			<p>　　联系方式：<a href="https://www.jiuxiaoqi.top/" target="_blank">www.jiuxiaoqi.top</a></p>
+			<p>　　安卓版下载链接：<a href="/android" target="_blank">点我跳转</a></p>
+		</div>
+		<div id="settings_time" class="part">
+			<h1>时刻</h1>
+			<div class="item">
+				<span>模式</span>
+				<select id="settings_time_mode">
+					<option value="NOW" selected>立刻</option>
+					<option value="TIMER">倒计时</option>
+					<option value="TIMESTAMP">特定时刻</option>
+				</select>
+			</div>
+			<div class="item" hidden>
+				<span>倒数</span>
+				<select id="settings_time_timer">
+					<option value="3" selected>3秒</option>
+					<option value="5">5秒</option>
+					<option value="10">10秒</option>
+					<option value="15">15秒</option>
+				</select>
+			</div>
+			<div class="item" hidden>
+				<span>显示数字</span>
+				<label class="mdui-switch">
+					<input id="settings_time_timerShow" type="checkbox" checked />
+					<i class="mdui-switch-icon"></i>
+				</label>
+			</div>
+			<div class="item" hidden>
+				<span>时刻</span>
+				<input id="settings_time_timestamp" type="datetime-local" />
+			</div>
+		</div>
+		<div id="settings_page" class="part">
+			<h1>页面</h1>
+			<div class="item">
+				<span>米哈游公司标志</span>
+				<label class="mdui-switch">
+					<input id="settings_page_company" type="checkbox" checked />
+					<i class="mdui-switch-icon"></i>
+				</label>
+			</div>
+			<div class="item">
+				<span>原神游戏标志</span>
+				<label class="mdui-switch" style="pointer-events: none;">
+					<input id="settings_page_game" type="checkbox" checked />
+					<i class="mdui-switch-icon"></i>
+				</label>
+			</div>
+			<div class="item">
+				<span>警告 (游戏前详阅)</span>
+				<label class="mdui-switch">
+					<input id="settings_page_warning" type="checkbox" />
+					<i class="mdui-switch-icon"></i>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="main" id="startup" hidden>
+		<div class="time" id="startup_timer" hidden>
+			<div id="startup_timer_tn"></div>
+		</div>
+		<div class="time" id="startup_timestamp" hidden>
+			<h1>启动时刻: <span id="startup_timestamp_t"></span></h1>
+			<p>当前时刻: <span id="startup_timestamp_n"></span></p>
+		</div>
+		<div class="content" id="startup_company">
+			<img src="img/SC/company.jpg" />
+		</div>
+		<div class="content" id="startup_game">
+			<img src="img/SC/game.jpg" />
+			<div id="startup_game_g">
+				抵制不良游戏, 拒绝盗版游戏, 注意自我保护, 谨防受骗上当, 适度游戏益脑, 沉迷游戏伤身, 合理安排时间, 享受健康生活。<br>
+				审批文号: 国新出审[2020]1407号 ISBN 978-7-498-07852-0 出版单位: 华东师范大学电子音像出版社有限公司<br>
+				著作权人: 上海米哈游天命科技有限公司<br>
+				本公司积极履行《网络游戏行业防沉迷自律公约》<br>
+			</div>
+		</div>
+		<div class="content" id="startup_warning">
+			<div id="startup_warning_main">
+				<h1>警告: 游戏前详阅</h1>
+				<img src="img/SC/warning_line.jpg" />
+				<p>
+					有极少数的人在观看一些视觉影像时可能会突然癫痫发作, 这些影像包括电子游戏中出现的闪光或图形。 在<br>
+					进行电子游戏时, 这些人可能会出现癫痫症状。 甚至连不具有癫痫史的人, 也可能在进行电子游戏时, 出现类<br>
+					似癫痫症状。 如果您或您的家人有癫痫史, 请在进行游戏之前先与医生咨询。 如果您在游玩电子游戏时出现<br>
+					以下症状, 包括眼睛疼痛、 视觉异常、 偏头痛、 痉挛或意识障碍 (诸如昏迷) 等, 请立即中止游戏, 并且请您于<br>
+					再次进行本游戏之前咨询您的医生。<br><br>
+					除上述症状外, 当您感到头痛、 头晕眼花、 恶心想吐或类似晕车症状时, 以及当身体的某些部位感到不舒服或<br>
+					疼痛时, 请立即中止游戏。 若在中止游戏后, 症状仍没有减退, 请立即寻求医生的诊疗。<br>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div id="readyStartup" class="mdui-dialog">
+		<div class="mdui-dialog-content">
+			<img src="img/donate/vx.jpg" />
+			<img src="img/donate/zfb.jpg" />
+		</div>
+		<div class="mdui-dialog-actions">
+			<button id="readyStartup_go" class="mdui-btn mdui-ripple mdui-ripple-black" mdui-dialog-close>继续启动</button>
+		</div>
+	</div>
+</body>
+
+</html>
